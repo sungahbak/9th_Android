@@ -1,0 +1,160 @@
+- TabLayout
+    - TabLayout이란 무엇이고, 어떤 기능을 수행하나요?
+
+        안드로이드 앱에서 여러 화면을 탭 형태로 구성하여 보여주는 ui레이아웃 컴포넌트
+
+        1.수평 레이아웃 제공 : 수평으로 탭 버튼 나열
+
+        2.콘텐츠 분류 및 전환 : 콘텐츠를 여러 탭으로 나누고, 사용자가 탭을 선택하여 해당 범주 화면으로 쉽게 전환
+
+        3.ViewPager2와의 연동 : 스와이프 가능한 화면 전환
+
+        4.탭 구성 요소 지원 : 각 탭에 텍스트, 아이콘 , 커스텀 뷰 표시하도록 지원
+
+        5.다양한 탭 모드 : 고정, 스크롤 기능
+
+        6.시각적 피드백 : 여러화면을 카테고리별로 묶어 쉽고 직관적인 내비게이션 환경 제공
+
+        ![image.png](attachment:ff603f8e-5c17-4cc9-ab4a-3b1c4b40a419:image.png)
+
+
+    https://developer.android.com/reference/com/google/android/material/tabs/TabLayout
+
+    - TabLayout이 사용된 예시에는 무엇이 있나요?
+
+        앱스토어의 탭 레이아웃
+
+
+    ![image.png](attachment:10179209-9817-4140-aed8-e2e202b837fe:21f3055f-c837-4796-b153-ad311d8ee044.png)
+
+- ViewPager2
+    - ViewPager란 무엇이고, 어떤 기능을 하나요?
+
+        사용자가 데이터 페이지를 **좌우로 넘길 수 있도록** 하는 레이아웃 관리자
+
+        tablayout과 결합해 사용할 때에는 뷰를 누르는 것 없이 스와이프만으로 뷰를 전환할 수 있게 함
+
+        https://developer.android.com/reference/androidx/viewpager/widget/ViewPager
+
+    - ViewPager가 사용된 예시에는 무엇이 있나요?
+
+        카카오톡, 에브리타임
+
+    - ViewPager와 ViewPager2의 차이는 무엇인가요?
+        1. 가로(좌우)뿐만 아니라 세로 페이징까지 제공한다.
+
+            ```kotlin
+            <androidx.viewpager2.widget.ViewPager2
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/pager"
+                    android:orientation="vertical" />
+            ```
+
+        2. 오른쪽에서 왼쪽(RTL) 페이징을 지원한다.
+
+            ```kotlin
+            <androidx.viewpager2.widget.ViewPager2
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/pager"
+                    android:layoutDirection="rtl" />
+            ```
+
+        3.  앱은 런타임 시 프래그먼트 컬렉션으로 동적으로 수정가능
+
+        | 특징 | ViewPager | ViewPager2 |
+        | --- | --- | --- |
+        | 기반 기술 | `LinearLayout` | `RecyclerView` |
+        | Fragment 관리 | 고정된 Fragment를 메모리에 로드하여 재사용하지 않음 | [FragmentStateAdapter](https://www.google.com/search?sca_esv=89fc9c58379db198&cs=0&sxsrf=AE3TifMxe1Pwp1-X-VTmf9qt8jzguwG7Cw%3A1759138123591&q=FragmentStateAdapter&sa=X&ved=2ahUKEwi_ksiX1P2PAxUHqVYBHR4RDHwQxccNegQIHRAB&mstk=AUtExfBkFHGNS1K0xssIxWMz1QV5sRoBFF2NneurX14CZOmRtXH5__dn-_uif9pakJp31zvWuKpuoLPQPOYN3sGkphYV86xwqjBYrKJ2sJZaY-yWQu0QfFu9XtqtHtLuDw1Jhq0S_5YeTX4L5TjCufHZWmkGZY47VhA5slQ1kqQoGPMNNDEgTrpiFK0hIVysdUr2uq9o5sSLEBt1XFWEw6XrxzEfWgwjO3cr3hHrZgaJLExI339BVx0-TWuwuJDYwYcsc4WtEx67by8nHezwI76r3eZKquCaqjZnW3Dd8sZ4M4Lalw&csui=3)를 사용해 메모리 효율적인 Fragment 생명주기 관리 |
+        | 데이터 업데이트 | 수동으로 Fragment를 관리하고 업데이트해야 함 | `DiffUtil`을 활용하여 효율적인 데이터 업데이트 지원 |
+        | 스크롤 방향 | 수평 스크롤만 지원 | 수평 스크롤과 수직 스크롤 모두 지원 |
+        | 어댑터 | `PagerAdapter`를 사용 | `RecyclerView.Adapter`를 기반으로 하며, Fragment 관리에는 `FragmentStateAdapter`와 `RecyclerView.Adapter`를 사용 |
+        | 권장 사항 | 더 이상 권장되지 않으며, 새로운 프로젝트에서는 ViewPager2 사용을 권장 | 최신 Android 개발에서 권장되는 API |
+- ViewPager2 설정하기
+    - ViewPager2를 이용하기 위해 어떤 라이브러리를 사용(implementation)해야 하나요?
+        1. [**build.gradle](https://www.google.com/search?sca_esv=89fc9c58379db198&cs=0&sxsrf=AE3TifNBIvjPLugOn0qhGioeMv2lIatHow%3A1759138399781&q=build.gradle&sa=X&ved=2ahUKEwj0tJ2b1f2PAxUmslYBHbnqDhsQxccNegQIBRAC&mstk=AUtExfAvMuDZP51IqQCdA4SlNIoU6BvhkwHa_XF1JBucL8Ti4Fdw3CjgKI0fJF0WwWdUq18JpjEzDjgSq4lK-oHNp6qg3PCB6S1GMMQ3cutsDZ3VMMKcI8OhWmWoOx930iQkSe_erV8n1kxiR-CNIzcJ--6hW1oIBH67rv7N0V-qLBHXyOIIOn7Frhn7U5JG9o_uanIVWtN7uvtrVm6K5I_QsQ0QGU2AuPREw8FfyxisnjYmQUWfV4tzSceRySH1EJCEWfynfBZ45a-fLyWvkDZHbutsNDyDR4HjKYpSd1I57Wi1jw&csui=3)** 파일에 의존성 추가
+
+            ```kotlin
+            implementation 'androidx.viewpager2:viewpager2:1.0.0' // 또는 최신 버전
+            ```
+
+        2. 레이아웃에 ViewPager2 추가
+
+        ```kotlin
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/my_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        ```
+
+        1. ViewPager2 구현 
+    - ViewPager2에서 FragmentStateAdapter는 무엇이고 어떤 기능을 하나요?
+
+        프래그먼트를 뷰 페이저 내에 표시하고 관리하는 데 사용되는 어댑터
+
+        1. 프래그먼트 생성 및 바인딩
+
+            `createFragment(int position)` 메서드를 구현하여 특정 위치(position)에 표시할 **프래그먼트 인스턴스**를 생성하고 반환
+
+        2. 프래그먼트 상태 저장 및 복원
+
+            화면에서 벗어나서 파괴(destroy)된 프래그먼트들의 **상태**(state)를 저장했다가 사용자가 다시 해당 페이지로 돌아올 때 그 상태를 **복원**
+
+        3. 대용량 데이터셋 처리
+
+            데이터셋의 크기에 관계없이 **메모리 사용을 최적화**
+
+- ViewPager2 Indicator 설정하기
+    - Indicator란 무엇이고, 어떤 역할을 하나요?
+
+        사용자에게 현재 상태나 위치를 시각적으로 명확하게 알려주는 요소
+
+        주로 여러 개의 항목을 스와이프하여 전환할 수 있는 ui컴포넌트(viewpager2)와 함께 사용
+
+        1. 도트 인디게이터 : 가장 일반적, 작은 원형(점)을 사용하여 각 페이지를 나타내고 현재 페이지의 점만 색상을 다르게
+        2. 탭 레이아웃 : 각 페이지에 제목을 붙여 탭 형태로, 현재 탭 아래에 밑줄 또는 강조 표시
+        3. 텍스트/숫자 인디케이터 : 현재 페이지 번호와 전체 페이지수를 ‘1/5’와 같은 형석으로 표시함.
+        4. 상태표시 : 진행률 표시줄, 스피너/원형 프로그레스
+    - ViewPager2에서 Indicator를 설정하려면 어떤 과정을 수행해야 하나?
+
+        1. TabLayout을 이용한 인디케이터 설정 (공식 권장 방법)
+
+        1. xml 설정
+
+            ```kotlin
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            ```
+
+        2. 어댑터 설정
+
+            ```kotlin
+            val viewPager = findViewById<ViewPager2>(R.id.view_pager)
+            val adapter = MyFragmentStateAdapter(this) // FragmentStateAdapter 구현체
+            viewPager.adapter = adapter
+            ```
+
+        3. Tablayout과 viewpager2 연결
+        ```kotlin
+        val tabLayout = findViewById<TabLayout>(R.id.tab_layout_indicator)
+
+        // TabLayoutMediator를 사용하여 연결
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            // 이 부분에서 각 탭에 표시할 텍스트나 아이콘을 설정합니다.
+            // Dot Indicator로만 사용하고 싶다면 텍스트를 비워두거나 아이콘을 설정합니다.
+            tab.text = "Page ${position + 1}"
+        }.attach()
+        ```
