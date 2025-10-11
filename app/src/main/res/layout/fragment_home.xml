@@ -176,37 +176,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_pannel_background_iv" />
 
-        <ImageView
-            android:id="@+id/home_pannel_album_img_iv2"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/img_album_exp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_today_music_title_tv" />
-
-        <TextView
-            android:id="@+id/home_pannel_album_tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="10dp"
-            android:text="Song Title"
-            android:textColor="@color/black"
-            android:textStyle = "bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_pannel_album_img_iv2" />
-
-        <TextView
-            android:id="@+id/home_pannel_album_tv2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="singer"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_pannel_album_tv1" />
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_today_music_album_rv"
