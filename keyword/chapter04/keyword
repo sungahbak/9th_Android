@@ -1,0 +1,77 @@
+- ListView란 무엇일까요?
+
+    세로로 스크롤 가능한 뷰 모음을 표시하며, 각 뷰는 목록에서 이전 뷰 바로 아래에 배치된다.
+
+    최근에는  [**`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.html)** 를 더 많이 사용한다.
+
+    ```kotlin
+    <ListView
+          android:id="@+id/list_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+    ```
+
+- ListView에 들어갈 아이템들은 어떻게 저장해야 할까요?
+
+    list형태의 데이터가 있어야 해서 Adapter를 통해 각각의 데이터와 ListView를 연결해줘야 한다.
+
+    ListView에 표시되는 아이템은 가장 단순하게 텍스트만 출력할수도 있고, 다른 View들의 조합을 이용한 복잡한 형태도 가능하다.
+
+    데이터클래스 생성 → 어댑터 구현 → 어댑터와 리스트뷰 연결하기
+
+- ListView는 어떤 구성요소로 되어있을까요?
+    1. 데이터 : 리스트에 표시할 실제 정보들의 집합. 문자열, 이미지, 사용자정의 객체등 어떤 형태의 데이터든 가능
+    2. 어댑터 : 데이터와 화면을 연결하는 핵심적인 역할, 데이터 소스에서 데이터를 가져와 각 리스트 아이템의 레이아웃에 맞게 가공하고 채우는 역할, 대표적인 어댑터로는 `ArrayAdapter`, `BaseAdapter`, `CursorAdapter` 등
+    3. AdapterView (ListView / RecyclerView)
+
+        어댑터가 가공한 데이터를 화면에 시각적으로 나열하여 보여주는 뷰, 연락처, 설정목록에서 널리 사용
+        https://developer.android.com/reference/android/widget/ListView
+
+- Android에서 사용되는 Adapter란 무엇일까요?
+
+    뷰를 데이터에 연결화고 화면에 보여주는 역할
+
+    - `ArrayAdapter`, `BaseAdapter` 등이 있다.
+- Adapter는 주로 어떤 역할을 할까요?
+    - **데이터 제공자:** Adapter는 앱의 데이터 소스(예: 배열, 리스트, 데이터베이스 커서 등)로부터 데이터를 가져옴
+    - **뷰 생성 및 바인딩:** 가져온 데이터를 기반으로 화면에 표시될 각 아이템에 대한 뷰(View)를 생성하고, 해당 뷰에 데이터를 채워 넣음. (바인딩(Binding))
+    - **AdapterView와 함께 사용:** Adapter는 `ListView`, `RecyclerView`, `GridView`, `Spinner`와 같은 `AdapterView` 계열의 뷰와 함께 사용. 이 `AdapterView`들은 Adapter가 제공하는 뷰들을 화면에 효율적으로 보여주는 역할.
+- ListView의 Adapter는 어떤 구성 요소를 가지고 있을까요?
+    - **ArrayAdapter:** 간단한 문자열 리스트와 같은 단일 뷰 타입의 데이터를 표시할 때 주로 사용.
+    - **BaseAdapter:** Adapter 클래스를 직접 상속받아 다양한 뷰 타입과 복잡한 레이아웃을 처리할 수 있도록 유연성을 제공
+    - **CursorAdapter:** 데이터베이스 쿼리 결과인 `Cursor` 객체의 데이터를 `ListView`나 `GridView`에 표시할 때 사용
+- RecyclerView
+    - RecyclerView란 무엇일까요?
+        - 리스트나 격자 형태의 데이터를 효율적으로 표시하기 위해 만들어진 아주 강력하고 유연한 뷰 그룹
+        - **대량의 데이터를 효율적이고 유연하게 표시하기 위한 필수적인 뷰 그룹**
+        - 현대 안드로이드 앱 개발에서는 리스트 형태의 UI를 구현할 때 대부분 RecyclerView를 사용
+        - 특징
+            - **향상된 성능:** `ViewHolder` 패턴과 뷰 재활용 덕분에 `ListView`보다 훨씬 부드러운 스크롤 성능을 제공해요. 특히 데이터 양이 많을 때 그 차이가 확연히 드러납니다.
+            - **다양한 레이아웃 지원:** `LayoutManager`를 통해 리스트, 격자, 가로 스크롤 등 다양한 레이아웃을 쉽게 구현할 수 있어요.
+            - **쉬운 애니메이션 적용:** `ItemAnimator`를 통해 아이템 변화에 대한 시각적인 효과를 쉽게 추가하여 사용자 경험을 향상시킬 수 있어요.
+            - **더 나은 구조:** 관심사가 분리된 구조로 인해 코드의 유지보수성이 높아지고 재사용성이 좋아져요.
+
+    - RecyclerView와 ListView는 어떤 차이점이 있을까요?
+        - RecyclerView는
+            - **ViewHolder 패턴을 기본 내장**
+            - **효율적인 View 재사용**으로 메모리 절약
+            - 다양한 레이아웃 매니저 지원 (수직, 수평, 그리드 등)
+            - 항목 추가/삭제/이동에 **디폴트 애니메이션 지원**
+            - **데이터 변경과 UI 업데이트가 분리**되어 효율적
+        - 반면 ListView는
+            - View 재사용을 개발자가 조정해야 함 (getView() - convertView)
+            - ViewHolder 패턴을 수동으로 구현해야 함.
+            - 레이아웃 변경이 유연하지 않음.
+            - 애니메이션, 다중 뷰 처리에 제약
+    - RecyclerView Adapter는 어떤 구성 요소를 가지고 있을까요?
+        - **RecyclerView:** 아이템 뷰들을 표시하는 컨테이너 역할을 하는 뷰 그룹
+        - **Adapter:** 데이터 소스와 RecyclerView 사이를 연결하고, 각 아이템에 대한 뷰를 생성하고 데이터를 바인딩하는 역할
+        - **ViewHolder:** 각 아이템 뷰를 담고 있으며, 뷰 내의 하위 뷰들을 캐싱하여 findViewById() 호출을 줄이는 역할을 하는 클래스. Adapter에서 ViewHolder를 생성하고 데이터를 할당.
+        - **LayoutManager:** RecyclerView 내의 아이템들을 어떻게 배치할지 결정하는 객체. `LinearLayoutManager`, `GridLayoutManager`, `StaggeredGridLayoutManager` 등이 제공되며, 필요에 따라 커스텀 LayoutManager를 만들 수도 있음.
+        - **ItemAnimator:** 아이템의 추가, 삭제, 이동 시 애니메이션 효과를 관리하는 객체 `DefaultItemAnimator`가 기본으로 제공.
+        - **ItemDecoration:** RecyclerView의 각 아이템 사이에 구분선이나 간격 등을 추가하는 데 사용되는 클래스
+    - RecyclerView를 설정할 때 주의해야 하는 점은 무엇이 있을까요?
+    - ViewPager2 에서 사용했던 FragmentStateAdapter와 RecyclerView.Adapter는 어떤 차이가 있을까요?
+    - 하나의 리사이클러뷰 안에 여러개의 여러개의 아이템을 넣을 수 있을까요??
+    (있다면 방법을, 없다면 안되는 이유도 함께 적어주세요)
+       이를 멀티 뷰 타입(Multiple View Type)이라고 하며, 어댑터(Adapter)를 수정하여 각 아이템의 종류에 따라 다른 뷰홀더(ViewHolder)를 생성하고 렌더링할 수 있습니다. 
