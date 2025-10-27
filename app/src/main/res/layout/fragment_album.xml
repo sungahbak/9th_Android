@@ -143,15 +143,5 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
 
-    <LinearLayout
-        android:id="@+id/bottom_nav_area"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@color/gray_color"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
