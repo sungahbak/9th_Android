@@ -4,7 +4,7 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.umc.com.example.umc.Album
+
 import com.example.umc.databinding.ItemAlbumBinding
 
 class AlbumRVAdapter(private val albumList:ArrayList<Album>):RecyclerView.Adapter<AlbumRVAdapter.ViewHolder>(){

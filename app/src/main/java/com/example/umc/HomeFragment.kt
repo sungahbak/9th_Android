@@ -10,7 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.umc.databinding.FragmentHomeBinding
 import java.util.zip.Inflater
 import com.example.umc.AlbumFragment
-import com.example.umc.com.example.umc.Album
+
 import java.util.ArrayList
 import com.google.gson.Gson
 
@@ -31,12 +31,12 @@ class HomeFragment : Fragment() {
 //       }
 
         albumDatas.apply{
-            add(Album("Butter", "방탄소년단 (BTS)", R.drawable.img_album_exp))
-            add(Album("Lilac", "아이유 (IU)", R.drawable.img_album_exp2))
-            add(Album("Next Level", "에스파 (AESPA)", R.drawable.img_album_exp3))
-            add(Album("Boy with Luv", "방탄소년단 (BTS)", R.drawable.img_album_exp4))
-            add(Album("BBoom BBoom", "모모랜드 (MOMOLAND)", R.drawable.img_album_exp5))
-            add(Album("Weekend", "태연 (Tae Yeon)", R.drawable.img_album_exp6))
+            add(Album(1,"Butter", "방탄소년단 (BTS)", R.drawable.img_album_exp))
+            add(Album(2,"Lilac", "아이유 (IU)", R.drawable.img_album_exp2))
+            add(Album(3,"Next Level", "에스파 (AESPA)", R.drawable.img_album_exp3))
+            add(Album(4,"Boy with Luv", "방탄소년단 (BTS)", R.drawable.img_album_exp4))
+            add(Album(5,"BBoom BBoom", "모모랜드 (MOMOLAND)", R.drawable.img_album_exp5))
+            add(Album(6,"Weekend", "태연 (Tae Yeon)", R.drawable.img_album_exp6))
         }
 
         val albumRVAdapter = AlbumRVAdapter(albumDatas)
