@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt")
 }
 
 android {
@@ -43,7 +44,7 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
+    implementation("androidx.core:core-ktx:1.10.1")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
@@ -56,5 +57,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    val roomVersion = "2.6.1"
+    // 💡 Kotlin DSL 문법에 맞게 'roomVersion' 변수를 사용합니다.
+    implementation("androidx.room:room-runtime:$roomVersion")
+
+    // 💡 kapt를 dependencies 블록 내부에서 함수 호출처럼 사용합니다.
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    implementation("androidx.room:room-ktx:$roomVersion")
 
 }
