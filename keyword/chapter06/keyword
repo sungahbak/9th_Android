@@ -1,0 +1,71 @@
+- Lifecycle
+    - Lifecycle이란 무엇일까요?
+
+        컴포넌트가 생성되고 사라지기 전까지 갖게되는 상태의 집합
+
+        | 상태 | 의미 |
+        | --- | --- |
+        | onCreate() | 액티비티가 시작될때 / setContentView,savedInstanceState |
+        | onStart() | ui관리하는 코드를 초기화, 브로드캐스트리시버와 비슷한 기능 |
+        | onResume() | 액티비티가 Resumed 상태가 되면 액티비티는 포그라운드로 이동하고 안드로이드 시스템은 onResume을 호출 |
+        | onPause() | 액티비티가 포커스를 잃거나 종료될때, 시간이 오래걸리는 작업 |
+        | onStop() | 액티비티가 완전히 가려지는 경우에 onPause() 호출 다음에 onStop()이 호출되고 Stopped 상태를 유지 |
+        | onDestory() | 액티비티가 소멸되기 전에 호출 |
+
+    ![image.png](attachment:10a895b0-b53f-4d10-a54a-970d0f91fb63:image.png)
+
+    - Lifecycle은 왜 등장하게 되었을까요?
+        1. 소프트웨어 규모의 대규모화 및 복잡성 증가
+        2. 체계적인 개발 절차의 부재 문제
+        3. 일관된 관리 및 의사소통 수단 제공
+
+    https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ko
+
+- Activity의 Lifecycle
+    - Activity의 대표적인 Lifecycle은 어떤게 있을까요?
+
+
+        | 상태 | 의미 |
+        | --- | --- |
+        | onCreate() | 액티비티가 시작될때 / setContentView,savedInstanceState/ 최초생성될때 |
+        | onStart() | ui관리하는 코드를 초기화, 브로드캐스트리시버와 비슷한 기능/사용자에게 보여지기 시작 |
+        | onResume() | 액티비티가 Resumed 상태가 되면 액티비티는 포그라운드로 이동하고 안드로이드 시스템은 onResume을 호출 / 사용자와 실제 상호작용가능 |
+        | onPause() | 액티비티가 포커스를 잃거나 종료될때, 시간이 오래걸리는 작업 / 다른 액티비티가 포커스를 가질 때 |
+        | onStop() | 액티비티가 완전히 가려지는 경우에 onPause() 호출 다음에 onStop()이 호출되고 Stopped 상태를 유지 / 화면에서 완전히 안 보일 때 |
+        | onDestory() | 액티비티가 소멸되기 전에 호출 / 메모리에서 완전히 제거될 때 |
+    - 각 Lifecycle을 활용하는 실제 예시들은 어떤게 있을까요?
+
+
+        | **콜백 메서드** | **발생 상황 및 상태 변화** | **실제 사용 예시** |
+        | --- | --- | --- |
+        | **`onCreate()`** | 액티비티가 **최초 생성**될 때 호출됨. (`setContentView`, `savedInstanceState` 처리) | 🌟 앱의 **초기 설정**: UI 레이아웃 설정 (`setContentView`), 뷰 초기화, 데이터 바인딩, ViewModel 연결, 클래스 범위 변수 인스턴스화 등. 이전 상태(`savedInstanceState`) 복원. |
+        | **`onStart()`** | 액티비티가 **사용자에게 보여지기 시작**할 때 호출됨. (`Created` $\rightarrow$ `Started`) | 🖼️ **화면 표시 준비**: UI를 관리하는 코드 초기화. 예를 들어, 동영상 플레이어의 UI는 보이기 시작하지만, 아직 재생은 시작하지 않은 상태. 브로드캐스트 리시버 등록. |
+        | **`onResume()`** | 액티비티가 **포그라운드로 이동**하여 사용자와 **상호작용이 가능**할 때 호출됨. (`Started` $\rightarrow$ `Resumed`) | 🏃 **활발한 상호작용**: 게임의 **실제 플레이 시작**, 카메라 미리보기 시작, 애니메이션 시작, 세밀한 위치 업데이트(GPS) 시작, 센서 리스너 등록 등. |
+        | **`onPause()`** | 액티비티가 **포커스를 잃거나 종료**될 때 (다른 액티비티가 부분적으로 가릴 때) 호출됨. **매우 짧은 시간** 실행. | 💾 **임시 데이터 저장 및 일시정지**: **게임의 진행 상태 저장** (영구적이지 않은 데이터), 리소스 사용이 많은 애니메이션 일시정지, 카메라 미리보기 일시정지, 센서 리스너 해제. **무거운 작업 피하기**. |
+        | **`onStop()`** | 액티비티가 **완전히 가려져서** 사용자에게 **보이지 않을 때** 호출됨. (`Resumed` $\rightarrow$ `Stopped`) | 🛑 **시스템 리소스 해제**: 화면에서 완전히 사라진 경우, **백그라운드에서 불필요한 작업 중지** (예: 위치 정보 업데이트를 정밀 $\rightarrow$ 대략적으로 변경), 동영상 재생 중지, 대규모 데이터베이스 트랜잭션 등 시간이 오래 걸리는 작업 완료. |
+        | **`onDestroy()`** | 액티비티가 **소멸되기 직전**에 호출됨. (메모리에서 완전히 제거) | 🗑️ **최종 정리**: `onStop()`에서 마무리되지 않은 모든 **리소스 해제 및 정리** (브로드캐스트 리시버 해제, 열려있는 데이터베이스 연결 닫기 등). |
+- SharedPreferences
+    - SharedPreference란 무엇일까요?
+        1. 데이터를 저장하는 안드로이드 API
+
+        (보통데이터를 저장할때는 db를 사용하지만 sharedpreference를 쓰는 이유는 간단하게 저장을 하기 위해서)
+
+        1. xml 파일형태로 데이터를 저장
+        2. 어플리케이션이 삭제되기 전까지 데이터가 보존된다
+        3. key-value형태로 데이터가 저장된다.
+    - SharedPreference는 어떤 방식으로 값을 저장할까요?
+        - [**`getSharedPreferences()`](https://developer.android.com/reference/android/content/Context?hl=ko#getSharedPreferences(java.lang.String,%20int)):** 이름으로 식별되는 공유 환경설정 파일이 여러 개 필요한 경우 이 메서드를 사용합니다. 이름은 첫 번째 매개변수로 지정할 수 있습니다. 앱의 모든 [**`Context`**](https://developer.android.com/training/data-storage/shared-preferences?hl=ko#kotlin:~:text=this%20from%20any-,Context,-in%20your%20app)에서 이 메서드를 호출할 수 있습니다.
+        - [**`getPreferences()`](https://developer.android.com/reference/android/app/Activity?hl=ko#getPreferences(int)):** 활동에 공유 환경설정 파일을 하나만 사용해야 하는 경우 [**`Activity`**](https://developer.android.com/reference/android/app/Activity?hl=ko)에서 이 메서드를 사용합니다. 이 메서드는 활동에 속한 기본 공유 환경설정 파일을 검색하기 때문에 이름을 제공할 필요가 없습니다.
+
+        ```kotlin
+        val sharedPref = activity?.getSharedPreferences(
+                getString(R.string.preference_file_key), Context.MODE_PRIVATE)
+        ```
+
+        https://developer.android.com/training/data-storage/shared-preferences?hl=ko
+
+    - JSON과 GSON이란 무엇일까요?
+
+        json은 데이터를 주고받기위해 사용되는 개방형 표준 포맷이다. 사람이 읽기 쉬운 텍스트 형식으로, 언어와 플랫폼에 독립적이여서 시스템 간 데이터교환에 용이, 주로 웹 애플리케이션과 서버간에 데이터를 전송할 때 많이 사용된다.
+
+        gson은 구글에서 개발한 자바 라이브러리이다. 복잡한 별도의 로직없이 자바객체와 json데이터를 상호변환할수 있게 해준다.  Java 개발자가 JSON 데이터를 다룰 때, `toJson()`을 사용하여 Java 객체를 JSON 문자열로 변환하고, `fromJson()`을 사용하여 JSON 문자열을 Java 객체로 변환하는 등 데이터 처리 작업을 효율적으로 할 수 있도록 돕는다.
