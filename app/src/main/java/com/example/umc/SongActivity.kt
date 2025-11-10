@@ -6,13 +6,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.umc.R
-import com.example.umc.Song
-import com.example.umc.SongDatabase
 import com.example.umc.databinding.ActivitySongBinding
 import com.google.gson.Gson
-private lateinit var songDB: SongDatabase
-private lateinit var songs: List<Song>
 
 class SongActivity : AppCompatActivity() {
 
@@ -93,27 +88,15 @@ class SongActivity : AppCompatActivity() {
     }
 
     private fun initSong(){
-        // 💡 1. SongDatabase 인스턴스 초기화
-        songDB = SongDatabase.getInstance(this)!!
-
-        // 💡 2. songs 리스트를 데이터베이스에서 로드 (핵심 누락 코드)
-        val songs = songDB.songDao().getSongs()
-
-        // 3. 안전 장치 (리스트가 비어있는 경우)
-        if (songs.isEmpty()) {
-            Toast.makeText(this, "재생할 노래 데이터가 없습니다. 데이터를 추가해주세요.", Toast.LENGTH_LONG).show()
-            finish()
-            return
-        }
-
-        // 4. 기존 로직 실행 (이제 songs 리스트가 비어있지 않으므로 안전함)
         val spf = getSharedPreferences("song", MODE_PRIVATE)
-        val songId = spf.getInt("songId", 0)
+        val songId = spf.getInt("songId",0)
 
         nowPos = getPlayingSongPosition(songId)
 
+        Log.d("now Song ID",songs[nowPos].id.toString())
+
         startTimer()
-        setPlayer(songs[nowPos]) // <-- 이제 이 줄이 안전하게 실행됩니다.
+        setPlayer(songs[nowPos])
     }
 
     private fun setLike(isLike: Boolean){

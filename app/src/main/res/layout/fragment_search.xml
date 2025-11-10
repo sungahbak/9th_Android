@@ -1,23 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="16dp">
 
     <TextView
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/search_title"
-        android:text="search title"
-        android:textColor="@color/black"
+        android:text="둘러보기"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:chipSpacingHorizontal="12dp"
+        app:chipSpacingVertical="8dp"
+        app:singleLine="false"
+        app:selectionRequired="false"
+        app:singleSelection="true">
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipChart"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="차트"
+            android:textSize="16sp"
+            app:chipBackgroundColor="@drawable/selector_chip_background"
+            android:textColor="@drawable/selector_chip_text"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipVideo"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="영상"
+            android:textSize="16sp"
+            app:chipBackgroundColor="@drawable/selector_chip_background"
+            android:textColor="@drawable/selector_chip_text" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipGenre"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="장르"
+            android:textSize="16sp"
+            app:chipBackgroundColor="@drawable/selector_chip_background"
+            android:textColor="@drawable/selector_chip_text" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSituation"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상황"
+            android:textSize="16sp"
+            app:chipBackgroundColor="@drawable/selector_chip_background"
+            android:textColor="@drawable/selector_chip_text" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMood"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분위기"
+            android:textSize="16sp"
+            app:chipBackgroundColor="@drawable/selector_chip_background"
+            android:textColor="@drawable/selector_chip_text" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipaudio"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오디오"
+            android:textSize="16sp"
+            app:chipBackgroundColor="@drawable/selector_chip_background"
+            android:textColor="@drawable/selector_chip_text" />
+
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/chartSectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="차트 >"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
+        app:layout_constraintTop_toBottomOf="@id/chipGroup"
+        android:layout_marginTop="32dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,6 +34,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -44,7 +45,7 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
@@ -57,13 +58,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("com.google.android.material:material:1.13.0")
+    implementation("me.relex:circleindicator:2.1.6")
+
     val roomVersion = "2.6.1"
-    // 💡 Kotlin DSL 문법에 맞게 'roomVersion' 변수를 사용합니다.
     implementation("androidx.room:room-runtime:$roomVersion")
-
-    // 💡 kapt를 dependencies 블록 내부에서 함수 호출처럼 사용합니다.
     kapt("androidx.room:room-compiler:$roomVersion")
-
     implementation("androidx.room:room-ktx:$roomVersion")
 
 }

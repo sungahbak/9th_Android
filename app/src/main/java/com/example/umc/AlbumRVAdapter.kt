@@ -4,7 +4,6 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.umc.databinding.ItemAlbumBinding
 
 class AlbumRVAdapter(private val albumList:ArrayList<Album>):RecyclerView.Adapter<AlbumRVAdapter.ViewHolder>(){
@@ -12,6 +11,7 @@ class AlbumRVAdapter(private val albumList:ArrayList<Album>):RecyclerView.Adapte
     interface MyItemClickListener{
         fun onItemClick(album: Album)
         fun onRemoveAlbum(position: Int)
+        fun onPlayButtonClick(album: Album)
     }
 
     private lateinit var mItemClickListener: MyItemClickListener
@@ -42,6 +42,10 @@ class AlbumRVAdapter(private val albumList:ArrayList<Album>):RecyclerView.Adapte
         holder.bind(albumList[position])
         holder.itemView.setOnClickListener {  mItemClickListener.onItemClick(albumList[position])}
 //        holder.binding.itemAlbumTitleTv.setOnClickListener {  mItemClickListener.onRemoveAlbum(position) }
+
+        holder.binding.itemAlbumPlayImgIv.setOnClickListener {
+            mItemClickListener.onPlayButtonClick(albumList[position])
+        }
     }
 
     override fun getItemCount(): Int = albumList.size

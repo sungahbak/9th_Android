@@ -177,12 +177,13 @@
         app:layout_constraintStart_toEndOf="@+id/login_division_tv"
         app:layout_constraintTop_toTopOf="@+id/login_division_tv" />
 
-    <TextView
+    <Button
         android:id="@+id/login_sign_up_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="회원가입"
+        android:background="@color/transparent"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/login_sign_in_btn"
