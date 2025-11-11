@@ -1,6 +1,7 @@
 package com.example.umc
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,43 +9,42 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.umc.databinding.FragmentHomeBinding
-import java.util.zip.Inflater
-import com.example.umc.AlbumFragment
-
-import java.util.ArrayList
 import com.google.gson.Gson
+import java.util.ArrayList
 
 class HomeFragment : Fragment() {
-    lateinit var binding : FragmentHomeBinding
 
+    lateinit var binding: FragmentHomeBinding
     private var albumDatas = ArrayList<Album>()
+
+    private lateinit var songDB: SongDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) : View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-//        binding.homePannelAlbumImgIv2.setOnClickListener {
-//            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm,AlbumFragment()).commitAllowingStateLoss()
-//       }
+//        binding.homeAlbumImgIv1.setOnClickListener {
+//            (context as MainActivity).supportFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm , AlbumFragment())
+//                .commitAllowingStateLoss()
+//        }
 
-        albumDatas.apply{
-            add(Album(1,"Butter", "방탄소년단 (BTS)", R.drawable.img_album_exp))
-            add(Album(2,"Lilac", "아이유 (IU)", R.drawable.img_album_exp2))
-            add(Album(3,"Next Level", "에스파 (AESPA)", R.drawable.img_album_exp3))
-            add(Album(4,"Boy with Luv", "방탄소년단 (BTS)", R.drawable.img_album_exp4))
-            add(Album(5,"BBoom BBoom", "모모랜드 (MOMOLAND)", R.drawable.img_album_exp5))
-            add(Album(6,"Weekend", "태연 (Tae Yeon)", R.drawable.img_album_exp6))
-        }
+        songDB = SongDatabase.getInstance(requireContext())!!
+        albumDatas.addAll(songDB.albumDao().getAlbums()) // songDB에서 album list를 가져옵니다.
+        Log.d("albumlist", albumDatas.toString())
 
+
+        // 더미데이터랑 Adapter 연결
         val albumRVAdapter = AlbumRVAdapter(albumDatas)
+
+        // 리사이클러뷰에 어댑터를 연결
         binding.homeTodayMusicAlbumRv.adapter = albumRVAdapter
-        binding.homeTodayMusicAlbumRv.layoutManager = LinearLayoutManager(context,
-            LinearLayoutManager.HORIZONTAL,false)
 
         albumRVAdapter.setMyItemClickListener(object : AlbumRVAdapter.MyItemClickListener{
+
             override fun onItemClick(album: Album) {
                 changeAlbumFragment(album)
             }
@@ -53,7 +53,14 @@ class HomeFragment : Fragment() {
                 albumRVAdapter.removeItem(position)
             }
 
+            override fun onPlayButtonClick(album: Album) {
+                val gson = Gson()
+                val albumJson = gson.toJson(album)
+            }
         })
+        // 레이아웃 매니저 설정
+        binding.homeTodayMusicAlbumRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
         val bannerAdapter = BannerVPAdapter(this)
         bannerAdapter.addFragment(BannerFragment(R.drawable.img_home_viewpager_exp))
         bannerAdapter.addFragment(BannerFragment(R.drawable.img_home_viewpager_exp2))
@@ -62,16 +69,17 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
-}
 
-private fun HomeFragment.changeAlbumFragment(album: Album) {
-    (context as MainActivity).supportFragmentManager.beginTransaction()
-        .replace(R.id.main_frm, AlbumFragment().apply {
-            arguments = Bundle().apply {
-                val gson = Gson()
-                val albumJson = gson.toJson(album)
-                putString("album", albumJson)
-            }
-        })
-        .commitAllowingStateLoss()
+    private fun changeAlbumFragment(album: Album) {
+        (context as MainActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frm, AlbumFragment().apply {
+                arguments = Bundle().apply {
+                    val gson = Gson()
+                    val albumJson = gson.toJson(album)
+                    putString("album", albumJson)
+                }
+            })
+            .commitAllowingStateLoss()
+    }
+
 }
