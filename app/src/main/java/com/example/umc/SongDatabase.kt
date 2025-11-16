@@ -7,12 +7,13 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 
-@Database(entities = [Song::class, Album::class, User::class, Like::class], version = 1)
-@TypeConverters(SongListConverter::class)
+@Database(entities = [Song::class, User::class, Like::class,Album::class], version = 2)
+//@TypeConverters(SongListConverter::class)
 
 abstract class SongDatabase: RoomDatabase() {
     abstract fun songDao(): SongDao
     abstract fun userDao(): UserDao
+    abstract fun albumDao() : AlbumDao
 
     companion object {
         private var instance: SongDatabase? = null
@@ -25,7 +26,7 @@ abstract class SongDatabase: RoomDatabase() {
                         context.applicationContext,
                         SongDatabase::class.java,
                         "song-database"
-                    ).allowMainThreadQueries().build()
+                    ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
                 }
             }
 

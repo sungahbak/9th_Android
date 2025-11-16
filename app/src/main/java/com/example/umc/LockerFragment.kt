@@ -6,16 +6,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.umc.databinding.FragmentLockerBinding
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlin.jvm.java
-
 
 class LockerFragment : Fragment() {
-    private lateinit var binding: FragmentLockerBinding
-    private val information = arrayListOf("저장한 곡", "음악파일", "저장앨범")
+    lateinit var binding: FragmentLockerBinding
+    private val information = arrayListOf("저장한곡", "음악파일", "저장앨범")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,34 +22,63 @@ class LockerFragment : Fragment() {
     ): View {
         binding = FragmentLockerBinding.inflate(inflater, container, false)
 
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
         val lockerAdapter = LockerVPAdapter(this)
-        val loginButton: Button = view.findViewById(R.id.locker_login_tv)
-
-        loginButton.setOnClickListener {
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-
-            startActivity(intent)
-
-        }
-
-//        lockerAdapter.addFragment(SavedSongFragment())
-//        lockerAdapter.addFragment(MusicFileFragment())
-//        lockerAdapter.addFragment(SavedAlbumFragment())
-
         binding.lockerContentVp.adapter = lockerAdapter
-
-        // TabLayout과 ViewPager2 연동
-        TabLayoutMediator(binding.lockerContentTb, binding.lockerContentVp) { tab, position ->
+        TabLayoutMediator(binding.lockerContentTb, binding.lockerContentVp){
+                tab, position ->
             tab.text = information[position]
         }.attach()
 
-        binding.lockerContentVp.setCurrentItem(2, false)
+        binding.lockerLoginTv.setOnClickListener {
+            startActivity(Intent(activity, LoginActivity::class.java))
+        }
+
+        val songDB = SongDatabase.getInstance(requireContext())!!
+        val userId = getJwt()
+        val likedAlbums = songDB.albumDao().getLikedAlbums(userId)
+
+        Log.d("LOKERFRAG/GET_ALBUMS", likedAlbums.toString())
+
+        return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        initViews()
+    }
+
+    private fun initViews() {
+        val jwt: Int = getJwt()
+
+        if (jwt == 0){
+            binding.lockerLoginTv.text = "로그인"
+
+            binding.lockerLoginTv.setOnClickListener {
+                startActivity(Intent(activity, LoginActivity::class.java))
+            }
+        }
+        else{
+            binding.lockerLoginTv.text = "로그아웃"
+
+            binding.lockerLoginTv.setOnClickListener {
+                logout()
+                startActivity(Intent(activity, MainActivity::class.java))
+            }
+        }
+    }
+
+    private fun getJwt(): Int {
+        val spf = activity?.getSharedPreferences("auth" , AppCompatActivity.MODE_PRIVATE)
+
+        return spf!!.getInt("jwt", 0)
+    }
+
+    private fun logout() {
+        val spf = activity?.getSharedPreferences("auth" , AppCompatActivity.MODE_PRIVATE)
+        val editor = spf!!.edit()
+
+        editor.remove("jwt")
+        editor.apply()
     }
 }
