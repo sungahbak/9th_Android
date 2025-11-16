@@ -1,0 +1,119 @@
+- Database (DB)
+    - Database의 정의는 무엇일까요?
+
+        데이터베이스는 전자적으로 저장되고 체계적인 데이터 모음입니다. 여기에는 단어, 숫자, 이미지, 비디오 및 파일을 포함한 모든 유형의 데이터가 포함될 수 있습니다. DBMS (데이터베이스 관리 시스템) 라는 소프트웨어를 사용하여 데이터를 저장, 검색 및 편집할 수 있습니다. 컴퓨터 시스템에서 *데이터베이스라는* 단어는 모든 DBMS, 데이터베이스 시스템 또는 데이터베이스와 관련된 응용 프로그램을 나타낼 수도 있습니다.
+        https://aws.amazon.com/ko/what-is/database/
+
+    - Database는 어디서 주로 사용될까요?
+
+        모든 업계에서는 다양한 사용 사례에 데이터베이스를 사용합니다. 다음은 일부 예입니다.
+
+        ### **사기 탐지**
+
+        그래프 데이터베이스는 ID 관리 및 사기 탐지에 도움이 됩니다. 기계 학습 알고리즘은 패턴을 찾고 사기 행위를 선제적으로 자동 감지합니다.
+
+        ### **문서 관리**
+
+        NoSQL 데이터베이스는 기사 및 계약서와 같은 문서를 저장하고 관리합니다. 또한 조직에서 문서를 쿼리하고 색인화할 수 있습니다.
+
+        ### **게임 및 엔터테인먼트**
+
+        많은 게임 및 엔터테인먼트 회사는 데이터베이스를 광범위하게 사용하여 수백만 명의 사용자에게 동시 로그인 액세스와 같은 리치 미디어 환경을 제공합니다.
+
+- Database Management System (DBMS)
+    - DBMS란 무엇일까요?
+
+        데이터베이스 관리 시스템(DBMS)은 데이터베이스의 정보를 관리하는 소프트웨어 기술입니다. 데이터베이스는 데이터를 읽고, 쓰며, 업데이트할 수 있는 전자 방식으로 저장된 데이터 모음입니다. DBMS를 사용하면 가용성, 신뢰성 및 성능을 향상시키면서 데이터를 쉽게 저장할 수 있습니다. 데이터베이스 관리 시스템은 필요에 따라 시스템 내에서 데이터 상관 관계를 식별하고 분석을 수행할 수 있는 도구도 제공합니다. DBMS는 조직이 소규모 및 대규모 데이터를 체계적인 방식으로 관리할 수 있도록 도와줍니다.
+
+    - 대표적인 DBMS는 무엇이 있을까요?
+
+        사용 목적과 지원하는 운영체제, 성능과 기능을 고려하여 선택하여야 한다.
+
+        - [**Oracle](https://www.google.com/search?q=Oracle&oq=%EB%8C%80%ED%91%9C%EC%A0%81%EC%9D%B8+dbms&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIKCAMQABiABBiiBDIHCAQQABjvBTIHCAUQABjvBdIBCDM0NTNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&mstk=AUtExfAIhtB6FOeaVjVI_O5FJvRZnOQnnaCLJwgqI4YaaeHxwZYYTJyKAYFG8WwOo2vK603JhveanjKyYToA7ckVLjzqDBh0W5C6o0wP0ILMpi7uUxvfY24nDx1hu3USockUXc6vhYkJzmr2eiMonxW3daeo3t7jdueEsIZpBPMpIJXgyOlqClqpmy1MGPDzN0ANxM39oQnFTT27OQbMBM6JU7srh48g6tVqwOurgZhBrCqbxyucaKDbLzbZMfILHVRX2chXA8c4kr3DFAZQy4v63I2_&csui=3&ved=2ahUKEwjDjejsw9-QAxUB4jQHHTYIIdMQgK4QegQIAxAB) (오라클)**: 대규모 시스템과 기업에서 가장 많이 사용되는 상용 DBMS입니다. 높은 안정성과 성능을 제공하며, 글로벌 시장 점유율 1위를 차지하고 있습니다.
+        - [**MySQL**](https://www.google.com/search?q=MySQL&oq=%EB%8C%80%ED%91%9C%EC%A0%81%EC%9D%B8+dbms&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIKCAMQABiABBiiBDIHCAQQABjvBTIHCAUQABjvBdIBCDM0NTNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&mstk=AUtExfAIhtB6FOeaVjVI_O5FJvRZnOQnnaCLJwgqI4YaaeHxwZYYTJyKAYFG8WwOo2vK603JhveanjKyYToA7ckVLjzqDBh0W5C6o0wP0ILMpi7uUxvfY24nDx1hu3USockUXc6vhYkJzmr2eiMonxW3daeo3t7jdueEsIZpBPMpIJXgyOlqClqpmy1MGPDzN0ANxM39oQnFTT27OQbMBM6JU7srh48g6tVqwOurgZhBrCqbxyucaKDbLzbZMfILHVRX2chXA8c4kr3DFAZQy4v63I2_&csui=3&ved=2ahUKEwjDjejsw9-QAxUB4jQHHTYIIdMQgK4QegQIAxAD): 사용하기 쉽고 인기가 많아 초보자에게 적합하며, 웹 애플리케이션을 비롯한 다양한 분야에서 널리 사용되는 오픈소스 DBMS입니다.
+        - [**SQL Server**](https://www.google.com/search?q=SQL+Server&oq=%EB%8C%80%ED%91%9C%EC%A0%81%EC%9D%B8+dbms&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIKCAMQABiABBiiBDIHCAQQABjvBTIHCAUQABjvBdIBCDM0NTNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&mstk=AUtExfAIhtB6FOeaVjVI_O5FJvRZnOQnnaCLJwgqI4YaaeHxwZYYTJyKAYFG8WwOo2vK603JhveanjKyYToA7ckVLjzqDBh0W5C6o0wP0ILMpi7uUxvfY24nDx1hu3USockUXc6vhYkJzmr2eiMonxW3daeo3t7jdueEsIZpBPMpIJXgyOlqClqpmy1MGPDzN0ANxM39oQnFTT27OQbMBM6JU7srh48g6tVqwOurgZhBrCqbxyucaKDbLzbZMfILHVRX2chXA8c4kr3DFAZQy4v63I2_&csui=3&ved=2ahUKEwjDjejsw9-QAxUB4jQHHTYIIdMQgK4QegQIAxAF): Microsoft에서 개발한 DBMS로, 주로 Windows 환경에서 많이 사용됩니다.
+        - [**MariaDB**](https://www.google.com/search?q=MariaDB&oq=%EB%8C%80%ED%91%9C%EC%A0%81%EC%9D%B8+dbms&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIKCAMQABiABBiiBDIHCAQQABjvBTIHCAUQABjvBdIBCDM0NTNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&mstk=AUtExfAIhtB6FOeaVjVI_O5FJvRZnOQnnaCLJwgqI4YaaeHxwZYYTJyKAYFG8WwOo2vK603JhveanjKyYToA7ckVLjzqDBh0W5C6o0wP0ILMpi7uUxvfY24nDx1hu3USockUXc6vhYkJzmr2eiMonxW3daeo3t7jdueEsIZpBPMpIJXgyOlqClqpmy1MGPDzN0ANxM39oQnFTT27OQbMBM6JU7srh48g6tVqwOurgZhBrCqbxyucaKDbLzbZMfILHVRX2chXA8c4kr3DFAZQy4v63I2_&csui=3&ved=2ahUKEwjDjejsw9-QAxUB4jQHHTYIIdMQgK4QegQIAxAH): MySQL에서 파생된 오픈소스 DBMS로, MySQL과 유사한 특징을 가지면서도 독자적인 기능을 제공합니다.
+        - [**PostgreSQL**](https://www.google.com/search?q=PostgreSQL&oq=%EB%8C%80%ED%91%9C%EC%A0%81%EC%9D%B8+dbms&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIKCAMQABiABBiiBDIHCAQQABjvBTIHCAUQABjvBdIBCDM0NTNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&mstk=AUtExfAIhtB6FOeaVjVI_O5FJvRZnOQnnaCLJwgqI4YaaeHxwZYYTJyKAYFG8WwOo2vK603JhveanjKyYToA7ckVLjzqDBh0W5C6o0wP0ILMpi7uUxvfY24nDx1hu3USockUXc6vhYkJzmr2eiMonxW3daeo3t7jdueEsIZpBPMpIJXgyOlqClqpmy1MGPDzN0ANxM39oQnFTT27OQbMBM6JU7srh48g6tVqwOurgZhBrCqbxyucaKDbLzbZMfILHVRX2chXA8c4kr3DFAZQy4v63I2_&csui=3&ved=2ahUKEwjDjejsw9-QAxUB4jQHHTYIIdMQgK4QegQIAxAJ): 객체 관계형 데이터베이스 시스템으로, 강력한 확장성과 데이터 무결성을 제공하는 오픈소스 DBMS입니다.
+    - 관계형 저장 방식은 무엇일까요?
+
+        관계형 데이터베이스는 데이터 포인트의 모음이며, 각 데이터 포인트 간에는 미리 정의된 관계가 있습니다.
+
+        관계형 모델은 데이터를 테이블로 구성합니다. 각 행은 개별 레코드를 나타내고 각 열은 값을 포함하는 속성으로 구성됩니다. 이러한 테이블 형식의 데이터베이스 구조는 데이터 요소 간의 관계를 쉽게 구축할 수 있도록 하여 데이터 자체를 재구성하지 않고도 다양한 방식으로 정보에 접근할 수 있도록 합니다.
+
+        관계형 데이터베이스에서 테이블을 조인하여 다양한 데이터 포인트 간의 상호 연결에 대한 심층적인 통찰력을 얻을 수 있습니다. 예를 들어, customer 테이블에는 name 열과 address 열이 있고 행 값은 John과 California입니다. 마찬가지로 product 테이블에는 name 열과 cost 열이 있고 행 값은 shoes와 $12입니다. customer 테이블과 product 테이블을 조인하여 고객이 더 자주 구매하는 인기 제품을 파악할 수 있습니다.
+
+        간단히 말해서, 관계형 데이터베이스는 미리 정의된 관계를 통해 데이터를 저장하고 액세스하는 방법입니다.
+
+    - 관계형이 아닌 저장 방식에는 무엇이 있을까요?
+
+        키-값 데이터베이스: 데이터를 키-값 페어의 컬렉션으로 저장합니다. 페어에서 키는 고유 식별자 역할을 합니다. 단순한 객체부터 복잡한 집합체에 이르기까지 무엇이든 키와 값이 될 수 있습니다.
+
+        ![image.png](attachment:233a3ac9-415b-44c8-b522-f2acff892fa2:image.png)
+
+        도큐먼트(문서) 데이터베이스: 개발자가 애플리케이션 코드에 사용하는 것과 동일한 문서 모델 형식을 사용합니다. 유연한 반정형 계층형 JSON 객체로 데이터를 저장합니다.
+
+        ```sql
+        {
+
+          company_name: "AnyCompany",
+
+          address: {street: "1212 Main Street", city: "Anytown"},
+
+          phone_number: "1-800-555-0101",
+
+          industry: ["food processing", "appliances"]
+
+          type: "private",
+
+          number_of_employees: 987
+
+        }
+        ```
+
+        그래프 데이터베이스:
+
+        관계를 저장하고 탐색하도록 특별히 구축되었습니다. 그래프 데이터베이스는 노드를 사용하여 데이터 엔터티를 저장하고 엣지로는 엔터티 간의 관계를 저장합니다.
+
+        엣지에는 항상 시작 노드, 종료 노드, 유형 및 방향이 있습니다. 예를 들어 상위-하위 관계, 작업 및 소유권을 설명할 수 있습니다.
+
+        ![image.png](attachment:b7213725-b7ef-4081-90c0-e72618db5d7e:image.png)
+
+        https://aws.amazon.com/ko/compare/the-difference-between-relational-and-non-relational-databases/
+
+    - SQL이란 무엇일까요?
+        1. DDL(Data Definition Language)
+        - **역할**: 데이터베이스 객체(테이블, 인덱스, 뷰 등)의 구조를 생성, 변경, 삭제합니다.
+        - **주요 명령어**:
+            - `CREATE`: 새로운 데이터베이스 객체를 생성합니다.
+            - `ALTER`: 기존 데이터베이스 객체의 구조를 변경합니다.
+            - `DROP`: 데이터베이스 객체를 삭제합니다.
+            - `TRUNCATE`: 테이블의 모든 데이터를 삭제합니다.
+        1. DML(Data Manipulation Language)
+        - **역할**: 테이블에 저장된 데이터를 조작(삽입, 조회, 수정, 삭제)합니다.
+        - **주요 명령어**:
+            - `INSERT`: 데이터를 삽입합니다.
+            - `SELECT`: 데이터를 조회합니다.
+            - `UPDATE`: 데이터를 수정합니다.
+            - `DELETE`: 데이터를 삭제합니다.
+        1. DCL(Data Control Language)
+        - **역할**: 데이터에 대한 접근 권한을 제어하여 보안을 유지합니다.
+        - **주요 명령어**:
+            - `GRANT`: 사용자에게 권한을 부여합니다.
+            - `REVOKE`: 사용자로부터 권한을 회수합니다
+- RoomDB
+    - RoomDB는 무엇일까요?
+
+        **안드로이드 앱에서 로컬 데이터를 효율적으로 관리하기 위해 사용되는 라이브러리**입니다. 이는 SQLite 위에 구축된 추상화 레이어로, SQLite 사용 시 발생하는 보일러플레이트 코드를 줄여주어 개발을 더 쉽게 만들어 줍니다. Room DB는 데이터 저장을 위한 [Entity](https://www.google.com/search?q=Entity&sca_esv=6b4d902e84856ab1&sxsrf=AE3TifPIbItr2Rvaz3mK4VkJzmKMPQYp4Q%3A1762501402724&ei=GqMNaaH5K5HQ1e8P643LoA8&ved=2ahUKEwj3j526xt-QAxWaZ_UHHci0Cz0QgK4QegQIARAC&uact=5&oq=room+db%EB%9E%80%3F&gs_lp=Egxnd3Mtd2l6LXNlcnAiC3Jvb20gZGLrnoA_MgUQIRigATIFECEYoAFIxBtQAFifGXAAeAGQAQCYAeABoAHfD6oBBTAuOS4yuAEDyAEA-AEBmAIJoALJDcICChAjGIAEGCcYigXCAgcQIxjwBRgnwgILEC4YgAQYsQMYgwHCAgQQABgDwgILEAAYgAQYsQMYgwHCAgcQABiABBgKwgIEECMYJ8ICChAAGIAEGEMYigXCAgoQABiABBgUGIcCwgIFEAAYgATCAg4QLhiABBixAxiDARjUAsICFBAuGIAEGMcBGJgFGJkFGJ4FGK8BwgIFEC4YgASYAwDiAwUSATEgQJIHBTAuNi4zoAfpPrIHBTAuNi4zuAfJDcIHBzAuMi41LjLIBzk&sclient=gws-wiz-serp&mstk=AUtExfBHshHyINe0tgzjGtzrWNm8KYzwbhXjgXvWsHLmFo5h08qf06tJaq_NI3a27zlD-ICladuhPyP6WmBSs46lUZ15Tk1e3GFbrfsAk03HY3JGQrc1rmer-mxgAU0npdePAJmEnaftQhDAn7zAwbf6ObfXxYZ0wU7TK2iabSAD9j7ril8yXM7uGfh2zldkY4IOeY6sdZ2Q7Xf_La-GVivvm1sUi-gdooI4YXR6iRle_t3X909yFG3PamCXAuODyQ_aFtnH7O5FfLf9IgpYI4nOX1er&csui=3), 데이터베이스 접근을 위한 [DAO](https://www.google.com/search?q=DAO&sca_esv=6b4d902e84856ab1&sxsrf=AE3TifPIbItr2Rvaz3mK4VkJzmKMPQYp4Q%3A1762501402724&ei=GqMNaaH5K5HQ1e8P643LoA8&ved=2ahUKEwj3j526xt-QAxWaZ_UHHci0Cz0QgK4QegQIARAD&uact=5&oq=room+db%EB%9E%80%3F&gs_lp=Egxnd3Mtd2l6LXNlcnAiC3Jvb20gZGLrnoA_MgUQIRigATIFECEYoAFIxBtQAFifGXAAeAGQAQCYAeABoAHfD6oBBTAuOS4yuAEDyAEA-AEBmAIJoALJDcICChAjGIAEGCcYigXCAgcQIxjwBRgnwgILEC4YgAQYsQMYgwHCAgQQABgDwgILEAAYgAQYsQMYgwHCAgcQABiABBgKwgIEECMYJ8ICChAAGIAEGEMYigXCAgoQABiABBgUGIcCwgIFEAAYgATCAg4QLhiABBixAxiDARjUAsICFBAuGIAEGMcBGJgFGJkFGJ4FGK8BwgIFEC4YgASYAwDiAwUSATEgQJIHBTAuNi4zoAfpPrIHBTAuNi4zuAfJDcIHBzAuMi41LjLIBzk&sclient=gws-wiz-serp&mstk=AUtExfBHshHyINe0tgzjGtzrWNm8KYzwbhXjgXvWsHLmFo5h08qf06tJaq_NI3a27zlD-ICladuhPyP6WmBSs46lUZ15Tk1e3GFbrfsAk03HY3JGQrc1rmer-mxgAU0npdePAJmEnaftQhDAn7zAwbf6ObfXxYZ0wU7TK2iabSAD9j7ril8yXM7uGfh2zldkY4IOeY6sdZ2Q7Xf_La-GVivvm1sUi-gdooI4YXR6iRle_t3X909yFG3PamCXAuODyQ_aFtnH7O5FfLf9IgpYI4nOX1er&csui=3) (Data Access Object)`, 그리고 데이터베이스 클래스 자체로 구성됩니다.
+
+        **주요 구성 요소**
+
+        - [**Entity**](https://www.google.com/search?q=Entity&sca_esv=6b4d902e84856ab1&sxsrf=AE3TifPIbItr2Rvaz3mK4VkJzmKMPQYp4Q%3A1762501402724&ei=GqMNaaH5K5HQ1e8P643LoA8&ved=2ahUKEwj3j526xt-QAxWaZ_UHHci0Cz0QgK4QegQIAxAB&uact=5&oq=room+db%EB%9E%80%3F&gs_lp=Egxnd3Mtd2l6LXNlcnAiC3Jvb20gZGLrnoA_MgUQIRigATIFECEYoAFIxBtQAFifGXAAeAGQAQCYAeABoAHfD6oBBTAuOS4yuAEDyAEA-AEBmAIJoALJDcICChAjGIAEGCcYigXCAgcQIxjwBRgnwgILEC4YgAQYsQMYgwHCAgQQABgDwgILEAAYgAQYsQMYgwHCAgcQABiABBgKwgIEECMYJ8ICChAAGIAEGEMYigXCAgoQABiABBgUGIcCwgIFEAAYgATCAg4QLhiABBixAxiDARjUAsICFBAuGIAEGMcBGJgFGJkFGJ4FGK8BwgIFEC4YgASYAwDiAwUSATEgQJIHBTAuNi4zoAfpPrIHBTAuNi4zuAfJDcIHBzAuMi41LjLIBzk&sclient=gws-wiz-serp&mstk=AUtExfBHshHyINe0tgzjGtzrWNm8KYzwbhXjgXvWsHLmFo5h08qf06tJaq_NI3a27zlD-ICladuhPyP6WmBSs46lUZ15Tk1e3GFbrfsAk03HY3JGQrc1rmer-mxgAU0npdePAJmEnaftQhDAn7zAwbf6ObfXxYZ0wU7TK2iabSAD9j7ril8yXM7uGfh2zldkY4IOeY6sdZ2Q7Xf_La-GVivvm1sUi-gdooI4YXR6iRle_t3X909yFG3PamCXAuODyQ_aFtnH7O5FfLf9IgpYI4nOX1er&csui=3): 데이터베이스 테이블의 행을 나타냅니다.
+        - [**DAO](https://www.google.com/search?q=DAO&sca_esv=6b4d902e84856ab1&sxsrf=AE3TifPIbItr2Rvaz3mK4VkJzmKMPQYp4Q%3A1762501402724&ei=GqMNaaH5K5HQ1e8P643LoA8&ved=2ahUKEwj3j526xt-QAxWaZ_UHHci0Cz0QgK4QegQIAxAD&uact=5&oq=room+db%EB%9E%80%3F&gs_lp=Egxnd3Mtd2l6LXNlcnAiC3Jvb20gZGLrnoA_MgUQIRigATIFECEYoAFIxBtQAFifGXAAeAGQAQCYAeABoAHfD6oBBTAuOS4yuAEDyAEA-AEBmAIJoALJDcICChAjGIAEGCcYigXCAgcQIxjwBRgnwgILEC4YgAQYsQMYgwHCAgQQABgDwgILEAAYgAQYsQMYgwHCAgcQABiABBgKwgIEECMYJ8ICChAAGIAEGEMYigXCAgoQABiABBgUGIcCwgIFEAAYgATCAg4QLhiABBixAxiDARjUAsICFBAuGIAEGMcBGJgFGJkFGJ4FGK8BwgIFEC4YgASYAwDiAwUSATEgQJIHBTAuNi4zoAfpPrIHBTAuNi4zuAfJDcIHBzAuMi41LjLIBzk&sclient=gws-wiz-serp&mstk=AUtExfBHshHyINe0tgzjGtzrWNm8KYzwbhXjgXvWsHLmFo5h08qf06tJaq_NI3a27zlD-ICladuhPyP6WmBSs46lUZ15Tk1e3GFbrfsAk03HY3JGQrc1rmer-mxgAU0npdePAJmEnaftQhDAn7zAwbf6ObfXxYZ0wU7TK2iabSAD9j7ril8yXM7uGfh2zldkY4IOeY6sdZ2Q7Xf_La-GVivvm1sUi-gdooI4YXR6iRle_t3X909yFG3PamCXAuODyQ_aFtnH7O5FfLf9IgpYI4nOX1er&csui=3) (Data Access Object)**: 데이터베이스에 대한 CRUD(생성, 읽기, 업데이트, 삭제) 작업을 수행하는 함수들을 정의합니다.
+        - **Database 클래스**: 데이터베이스에 대한 인스턴스를 제공하고, DAO를 포함하며, 버전 관리 등을 담당합니다.
+    - RoomDB 개발 이전에 사용하였고, 현재 RoomDB의 기반인 DBMS는 무엇일까요?
+
+        SQLite
+
+    - RoomDB는 어떤 방식으로 값을 저장할까요?
+
+        [**Entity](https://www.google.com/search?q=Entity&sca_esv=6b4d902e84856ab1&sxsrf=AE3TifMxckGx-IUBM_QSFl7LAoI8BhaNvQ%3A1762501691194&ei=O6QNaf_QC7Lv1e8PiJ6QwQg&ved=2ahUKEwiLp6vxxt-QAxURna8BHS-SIiEQgK4QegQIARAC&uact=5&oq=room+db%EA%B0%80+%EA%B0%92%EC%9D%84+%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94+%EB%B0%A9%EC%8B%9D&gs_lp=Egxnd3Mtd2l6LXNlcnAiJXJvb20gZGLqsIAg6rCS7J2EIOyggOyepe2VmOuKlCDrsKnsi50yBRAhGKABSNlEUMUEWLhDcA94AZABBJgB9wGgAao0qgEGMC4zMi42uAEDyAEA-AEBmAIhoAKyGcICChAAGLADGNYEGEfCAgQQIxgnwgIFEAAYgATCAgkQIRigARgKGCrCAgcQIRigARgKwgIEECEYCpgDAIgGAZAGCpIHBzE1LjE3LjGgB72HAbIHBjAuMTcuMbgH4xjCBwcwLjIyLjExyAdZ&sclient=gws-wiz-serp&mstk=AUtExfDqO4YyB_5t99UOfOgDKD5MYc1_9vbjLt77llv3TB9qB4TjQnMlfBazY1Kud484tUKxUaWUZY4O2C_rHa8JKC8O6sJWEkai21CLBUCVkMh82RPxwPekR_jNaBBqvkJv4dGSphD2V8J6nIKgQhaDje2jSEEW8fLREspRGTS-Llt-kX85P_3d55eTNbZceaXNzuUuoXzD6kiF2j9IfSsQKhDL51S82xRIWIYJwYGJyN1Vr0Xo9pHHURCRTyLpl8w2lp8nVvmFYl6Lc76NS4KWgDJH&csui=3), [DAO](https://www.google.com/search?q=DAO&sca_esv=6b4d902e84856ab1&sxsrf=AE3TifMxckGx-IUBM_QSFl7LAoI8BhaNvQ%3A1762501691194&ei=O6QNaf_QC7Lv1e8PiJ6QwQg&ved=2ahUKEwiLp6vxxt-QAxURna8BHS-SIiEQgK4QegQIARAD&uact=5&oq=room+db%EA%B0%80+%EA%B0%92%EC%9D%84+%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94+%EB%B0%A9%EC%8B%9D&gs_lp=Egxnd3Mtd2l6LXNlcnAiJXJvb20gZGLqsIAg6rCS7J2EIOyggOyepe2VmOuKlCDrsKnsi50yBRAhGKABSNlEUMUEWLhDcA94AZABBJgB9wGgAao0qgEGMC4zMi42uAEDyAEA-AEBmAIhoAKyGcICChAAGLADGNYEGEfCAgQQIxgnwgIFEAAYgATCAgkQIRigARgKGCrCAgcQIRigARgKwgIEECEYCpgDAIgGAZAGCpIHBzE1LjE3LjGgB72HAbIHBjAuMTcuMbgH4xjCBwcwLjIyLjExyAdZ&sclient=gws-wiz-serp&mstk=AUtExfDqO4YyB_5t99UOfOgDKD5MYc1_9vbjLt77llv3TB9qB4TjQnMlfBazY1Kud484tUKxUaWUZY4O2C_rHa8JKC8O6sJWEkai21CLBUCVkMh82RPxwPekR_jNaBBqvkJv4dGSphD2V8J6nIKgQhaDje2jSEEW8fLREspRGTS-Llt-kX85P_3d55eTNbZceaXNzuUuoXzD6kiF2j9IfSsQKhDL51S82xRIWIYJwYGJyN1Vr0Xo9pHHURCRTyLpl8w2lp8nVvmFYl6Lc76NS4KWgDJH&csui=3), [Database](https://www.google.com/search?q=Database&sca_esv=6b4d902e84856ab1&sxsrf=AE3TifMxckGx-IUBM_QSFl7LAoI8BhaNvQ%3A1762501691194&ei=O6QNaf_QC7Lv1e8PiJ6QwQg&ved=2ahUKEwiLp6vxxt-QAxURna8BHS-SIiEQgK4QegQIARAE&uact=5&oq=room+db%EA%B0%80+%EA%B0%92%EC%9D%84+%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94+%EB%B0%A9%EC%8B%9D&gs_lp=Egxnd3Mtd2l6LXNlcnAiJXJvb20gZGLqsIAg6rCS7J2EIOyggOyepe2VmOuKlCDrsKnsi50yBRAhGKABSNlEUMUEWLhDcA94AZABBJgB9wGgAao0qgEGMC4zMi42uAEDyAEA-AEBmAIhoAKyGcICChAAGLADGNYEGEfCAgQQIxgnwgIFEAAYgATCAgkQIRigARgKGCrCAgcQIRigARgKwgIEECEYCpgDAIgGAZAGCpIHBzE1LjE3LjGgB72HAbIHBjAuMTcuMbgH4xjCBwcwLjIyLjExyAdZ&sclient=gws-wiz-serp&mstk=AUtExfDqO4YyB_5t99UOfOgDKD5MYc1_9vbjLt77llv3TB9qB4TjQnMlfBazY1Kud484tUKxUaWUZY4O2C_rHa8JKC8O6sJWEkai21CLBUCVkMh82RPxwPekR_jNaBBqvkJv4dGSphD2V8J6nIKgQhaDje2jSEEW8fLREspRGTS-Llt-kX85P_3d55eTNbZceaXNzuUuoXzD6kiF2j9IfSsQKhDL51S82xRIWIYJwYGJyN1Vr0Xo9pHHURCRTyLpl8w2lp8nVvmFYl6Lc76NS4KWgDJH&csui=3) 클래스를 사용해 값을 저장**합니다. 개발자는 **데이터 구조를 `@Entity` 어노테이션이 붙은 Kotlin 데이터 클래스**로 정의하고, **데이터 접근 로직을 `@Dao` 어노테이션이 붙은 인터페이스**로 분리하며, **데이터베이스 전체를 관리하는 `@Database` 클래스**를 통해 데이터를 저장하고 관리합니다. 이 방식은 컴파일 시점에 쿼리 오류를 발견하고 객체 지향적으로 데이터를 다룰 수 있게 해줍니다.
