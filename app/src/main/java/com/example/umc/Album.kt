@@ -13,6 +13,6 @@ data class Album(
     var title: String? = "",
     var singer: String? = "",
     var coverImg: Int? = null,
-    @Ignore
-    val songs: List<Song> = emptyList()
+    var isLike: Boolean = false
+
 )

@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private var song:Song = Song()
     private var gson: Gson = Gson()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_Umc)
