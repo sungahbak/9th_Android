@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.umc.databinding.ActivityLoginBinding
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() ,LoginView{
     lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
 
        user?.let {
            Log.d("LOGINACT/GET_USER", "userId : ${user.id}, $user")
-            saveJwt(user.id)
+            //saveJwt(user.id)
            startMainActivity()
        }
 
@@ -60,11 +60,32 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    private fun saveJwt(jwt: Int){
-        val spf = getSharedPreferences("auth" , MODE_PRIVATE)
+//    private fun saveJwt(jwt: Int){
+//        val spf = getSharedPreferences("auth" , MODE_PRIVATE)
+//        val editor = spf.edit()
+//
+//        editor.putInt("jwt", jwt)
+//        editor.apply()
+//    }
+
+    private fun saveJwt2(jwt: String){
+        val spf = getSharedPreferences("auth2" , MODE_PRIVATE)
         val editor = spf.edit()
 
-        editor.putInt("jwt", jwt)
+        editor.putString("jwt", jwt)
         editor.apply()
+    }
+
+    override fun onLoginSuccess(code: Int, result: Result) {
+        when(code){
+            1000 -> {
+                saveJwt2(result.jwt)
+                startMainActivity()
+            }
+        }
+    }
+
+    override fun onLoginFailure() {
+        //실패처리
     }
 }
