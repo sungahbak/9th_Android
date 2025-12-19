@@ -1,4 +1,4 @@
-package com.example.umc
+package com.example.umc.ui.auth
 
 import com.example.umc.data.remote.Result
 

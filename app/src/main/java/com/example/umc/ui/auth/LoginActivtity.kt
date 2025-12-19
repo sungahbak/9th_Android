@@ -1,4 +1,4 @@
-package com.example.umc
+package com.example.umc.ui.auth
 
 import android.content.Intent
 import android.os.Bundle

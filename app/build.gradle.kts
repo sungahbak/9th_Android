@@ -78,4 +78,8 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.11.0")
     kapt("com.github.bumptech.glide:compiler:4.11.0")
 
+    //버전은 최신 버전으로 사용
+    implementation("com.kakao.sdk:v2-user:2.13.0")
+    implementation("com.kakao.sdk:v2-auth:2.13.0")
+
 }
